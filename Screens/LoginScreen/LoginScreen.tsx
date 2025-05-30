@@ -29,8 +29,8 @@ export const LoginScreen: React.FC<{ navigation: any}> = ({ navigation }) => {
         </TouchableWithoutFeedback>
     );
 
-    const checkData = (email: string, password: string): boolean => {
-        if (email === "testuser@gmail.com" && password === "testuser") {
+    const checkData = async (email: string, password: string): Promise<boolean> => {
+        if (email === "testuser@gmail.com" && password === "testuser") { 
             return true;
         }else {
             setWrongInput(true);
@@ -40,13 +40,13 @@ export const LoginScreen: React.FC<{ navigation: any}> = ({ navigation }) => {
 
     return (
         <LinearGradient 
-        colors={['#4635B1', '#B771E5']}
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          width: '100%',
-          height: '100%'
+            colors={['#4635B1', '#B771E5']}
+            style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            height: '100%'
         }}>
             <Layout style={styles.container}>
                 <Layout style={styles.title}>
@@ -57,8 +57,8 @@ export const LoginScreen: React.FC<{ navigation: any}> = ({ navigation }) => {
                 <Layout style={styles.authForm}>
                     <Input style={wrongInput ? styles.wrongInput : ''} label='Email' placeholder='Введите свой email' value={email} onChangeText={(newValue) => {setEmail(newValue); setWrongInput(false)}}></Input>
                     <Input style={wrongInput ? styles.wrongInput : ''} label='Password' placeholder='Введите свой пароль' value={password} onChangeText={(newValue) => {setPassword(newValue); setWrongInput(false)}} secureTextEntry={secureEntry} accessoryRight={renderIcon}></Input>
-                    <Button style={styles.submitButton} onPress={() => {
-                        if (checkData(email, password)) {
+                    <Button style={styles.submitButton} onPress={async () => {
+                        if (await checkData(email, password)) {
                             alert('Вы успешно авторизовались!');
                         }else {
                             setWrongInput(true);
