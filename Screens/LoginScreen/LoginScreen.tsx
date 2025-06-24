@@ -60,6 +60,7 @@ export const LoginScreen: React.FC<{ navigation: any}> = ({ navigation }) => {
                     <Button style={styles.submitButton} onPress={async () => {
                         if (await checkData(email, password)) {
                             alert('Вы успешно авторизовались!');
+                            navigation.navigate('Home');
                         }else {
                             setWrongInput(true);
                             alert('Вы ввели неверные данные!');

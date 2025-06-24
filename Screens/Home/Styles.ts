@@ -21,7 +21,7 @@ export default StyleSheet.create({
         backgroundColor: '#003092',
         color: '#000',
         width: '45%',
-        height: '40%',
+        height: '40%'
     },
     range: {
         flexDirection: 'row',
@@ -35,9 +35,25 @@ export default StyleSheet.create({
     },
     historyContainer: {
         width: '90%',
-        height: '20%',
+        height: '25%',
         backgroundColor: 'lightgray',
         borderRadius: 30,
         padding: '5%',
+    },
+    buttons: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        width: '90%',
+        height: '20%',
+    },
+    controlButton: {
+        width: '100%',
+        backgroundColor: '#003092',
+        color: '#000'
+    },
+    clearButton: {
+        width: '100%',
+        backgroundColor: '#B771E5',
+        color: '#000000',
     }
 });
